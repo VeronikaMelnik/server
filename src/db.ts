@@ -2,12 +2,12 @@ import 'dotenv/config';
 import { Sequelize } from 'sequelize'
 
 export const sequelize = new Sequelize(
-    process.env.DB_NAME,
-    process.env.DB_USER,
-    process.env.DB_PASSWORD,
+    process.env.POSTGRES_DB || 'postgres',
+    process.env.POSTGRES_USER || 'postgres',
+    process.env.POSTGRES_PASSWORD || 'root',
     {
         dialect: 'postgres',
-        host: process.env.DB_HOST,
-        port: Number(process.env.DB_PORT)
+        host: process.env.POSTGRES_HOST,
+        port: Number(process.env.POSTGRES_PORT)
     }
 )
