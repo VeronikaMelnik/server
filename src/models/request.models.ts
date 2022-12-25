@@ -1,6 +1,5 @@
 import {sequelize} from '../db'
 import { DataTypes } from 'sequelize'
-import { User } from './user.models'
 import { UserResponse } from './response.models'
 import { RequestModel } from './types/request.type'
 
