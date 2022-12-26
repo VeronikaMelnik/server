@@ -1,7 +1,10 @@
+import { NextFunction } from 'express';
 import jwt from 'jsonwebtoken'
+import { ROLE } from 'src/constants/user.constants';
+import { ExtendedRequest } from 'src/types/express.types';
 
-module.exports = function(role) {
-    return function (req, res, next) {
+export const authMiddleware = function(role: ROLE) {
+    return function (req: ExtendedRequest, res: Response, next: NextFunction) {
         if (req.method === "OPTIONS") {
             next()
         }

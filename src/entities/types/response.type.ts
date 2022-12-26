@@ -1,5 +1,5 @@
 
-export interface UserResponseCreationAttrsesponseModel {
+export interface UserResponseCreationAttrs {
     id: number,
     title: string,
     message: string,

@@ -22,7 +22,7 @@ export class UserController {
             if (candidate) {
                 throw new Error('user exists')
             }
-            const hashPassword = await bcrypt.hash(password)
+            const hashPassword = await bcrypt.hash(password, 5)
             const user = await User.create({ name, email, password: hashPassword });
             const token = generateJwt(user.id, user.email, user.name)
             return res.json({ token })

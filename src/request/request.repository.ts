@@ -9,9 +9,8 @@ export class RequestRepository {
         const request = UserRequest.findAll({ where: { id } });
         return request
     }
-    static findByUserId(userId: number) {
+    static findAllByUserId(userId: number) {
         const request = UserRequest.findAll({ where: { userId } });
         return request
     }
-
 }

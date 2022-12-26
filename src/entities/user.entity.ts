@@ -2,12 +2,8 @@ import { Column, DataType, Model, Table, HasMany } from 'sequelize-typescript';
 import { ROLE } from '../constants/user.constants';
 import { UserRequest } from './request.entity';
 import { UserResponse } from './response.entity';
+import { UserCreationAttrs } from './types/user.type';
 
-interface UserCreationAttrs {
-    email: string,
-    name: string,
-    password: string,
-}
 
 @Table({ tableName: 'users' })
 export class User extends Model<User, UserCreationAttrs> {
