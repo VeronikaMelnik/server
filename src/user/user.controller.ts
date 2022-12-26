@@ -1,5 +1,5 @@
 import {Request, Response, NextFunction} from 'express'
-import { User } from 'src/models/user.models'
+import { User } from 'src/entities/user.entity'
 import { UserService } from './user.service'
 
 export class UserController{

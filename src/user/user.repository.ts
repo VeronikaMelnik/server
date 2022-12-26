@@ -1,4 +1,4 @@
-import { User } from "src/models/user.models";
+import { User } from "../entities/user.entity";
 
 export class UserRepository {
     static createUser(name: string, email: string, password: string) {

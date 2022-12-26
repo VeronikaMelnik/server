@@ -1,16 +1,16 @@
-import { UserRequest } from "src/models/request.models";
+import { UserRequest } from "../entities/request.entity";
 
 export class RequestRepository {
-    static createRequest(text: string) {
-        const request = UserRequest.create({ message });
+    static createRequest(message: string, title: string, userId: number) {
+        const request = UserRequest.create({ message, title, userId });
         return request
     }
     static findById(id: number) {
-        const request = UserRequest.findMany({where: {id}});
+        const request = UserRequest.findAll({where: {id}});
         return request
     }
-    static findByEmail(email: string) {
-        const request = UserRequest.findMany({where: {email}});
+    static findByUserId(userId: number) {
+        const request = UserRequest.findAll({where: {userId}});
         return request
     }
 

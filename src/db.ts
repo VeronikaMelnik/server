@@ -1,5 +1,8 @@
 import 'dotenv/config';
-import { Sequelize } from 'sequelize'
+import { Sequelize } from 'sequelize-typescript'
+import { UserRequest } from './entities/request.entity';
+import { UserResponse } from './entities/response.entity';
+import { User } from './entities/user.entity';
 
 export const sequelize = new Sequelize(
     process.env.DB_NAME,
@@ -8,6 +11,7 @@ export const sequelize = new Sequelize(
     {
         dialect: 'postgres',
         host: process.env.DB_HOST,
-        port: Number(process.env.DB_PORT)
+        port: Number(process.env.DB_HOST),
+        models: [User, UserRequest, UserResponse]
     }
 )

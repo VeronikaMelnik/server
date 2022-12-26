@@ -1,18 +1,16 @@
-import { UserResponse } from "src/models/response.models";
+import { UserResponse } from "src/entities/response.entity";
 
-export class UserRepository {
-    static createResponse(message: string) {
-        static create(message: string) {
-        const response = UserResponse.create({ message });
+export class ResponseRepository {
+    static createResponse(message: string, title: string, userId: number) {
+        const response = UserResponse.create({ message, title, userId });
         return response
     }
     static findById(id: number) {
-        const user = UserResponse.findOne({where: {id}});
+        const user = UserResponse.findAll({where: {id}});
         return user
     }
-    static findByEmail(email: string) {
-        const response = UserResponse.findOne({where: {email}});
+    static findAllReqForUser(requestId: number) {
+        const response = UserResponse.findAll({where: {requestId}});
         return response
     }
-}
 }

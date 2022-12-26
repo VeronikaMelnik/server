@@ -1,11 +1,9 @@
 import { RequestRepository } from './request.repository'
 
-export class UserService {
+export class RequestService {
 
-    static async createRequest(message: string) {
-        const request = await RequestRepository.findByMessage(message)
-        if (message != type: string) {
-            throw new Error('this is not a correct request')
-        }
+    static async createRequest(userId: number) {
+        const request = await RequestRepository.findByUserId(userId)
+        return request
 }
 }
