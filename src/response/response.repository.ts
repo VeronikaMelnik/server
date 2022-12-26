@@ -6,11 +6,11 @@ export class ResponseRepository {
         return response
     }
     static findById(id: number) {
-        const user = UserResponse.findAll({where: {id}});
+        const user = UserResponse.findAll({ where: { id } });
         return user
     }
     static findAllReqForUser(requestId: number) {
-        const response = UserResponse.findAll({where: {requestId}});
+        const response = UserResponse.findAll({ where: { requestId } });
         return response
     }
 }

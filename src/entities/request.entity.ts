@@ -6,19 +6,19 @@ interface UserRequestCreationAttrs {
     message: string,
 }
 
-@Table({tableName: 'requests'})
+@Table({ tableName: 'requests' })
 export class UserRequest extends Model<UserRequest, UserRequestCreationAttrs> {
 
-    @Column({type: DataType.INTEGER, unique: true, autoIncrement: true, primaryKey: true})
+    @Column({ type: DataType.INTEGER, unique: true, autoIncrement: true, primaryKey: true })
     id: number;
 
-    @Column({type: DataType.STRING, allowNull: false})
+    @Column({ type: DataType.STRING, allowNull: false })
     title: string;
 
-    @Column({type: DataType.STRING, allowNull: false})
+    @Column({ type: DataType.STRING, allowNull: false })
     message: string;
 
     @ForeignKey(() => User)
-    @Column({type: DataType.INTEGER})
+    @Column({ type: DataType.INTEGER })
     userId: number;
 }

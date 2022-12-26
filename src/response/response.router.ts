@@ -1,4 +1,4 @@
-import {Router} from 'express'
+import { Router } from 'express'
 import { ResponseController } from './response.controller'
 
 export const responseRouter = Router()

@@ -6,11 +6,11 @@ export class UserRepository {
         return user
     }
     static findById(id: number) {
-        const user = User.findOne({where: {id}});
+        const user = User.findOne({ where: { id } });
         return user
     }
     static findByEmail(email: string) {
-        const user = User.findOne({where: {email}});
+        const user = User.findOne({ where: { email } });
         return user
     }
 

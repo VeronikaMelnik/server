@@ -7,23 +7,23 @@ interface UserResponseCreationAttrs {
     message: string,
 }
 
-@Table({tableName: 'responses'})
+@Table({ tableName: 'responses' })
 export class UserResponse extends Model<UserResponse, UserResponseCreationAttrs> {
 
-    @Column({type: DataType.INTEGER, unique: true, autoIncrement: true, primaryKey: true})
+    @Column({ type: DataType.INTEGER, unique: true, autoIncrement: true, primaryKey: true })
     id: number;
 
-    @Column({type: DataType.STRING, allowNull: false})
+    @Column({ type: DataType.STRING, allowNull: false })
     title: string;
 
-    @Column({type: DataType.STRING, allowNull: false})
+    @Column({ type: DataType.STRING, allowNull: false })
     message: string;
 
     @ForeignKey(() => User)
-    @Column({type: DataType.INTEGER})
+    @Column({ type: DataType.INTEGER })
     userId: number;
 
     @ForeignKey(() => UserRequest)
-    @Column({type: DataType.INTEGER})
+    @Column({ type: DataType.INTEGER })
     requestId: number;
 }

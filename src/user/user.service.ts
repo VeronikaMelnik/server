@@ -20,4 +20,8 @@ export class UserService {
         }
         return user
     }
-}
+
+    static async checkUser(id:number, email: string, name: string) {
+        
+    }
+} 
