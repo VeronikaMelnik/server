@@ -1,31 +1,28 @@
-import { Column, DataType, Model, Table, HasMany } from 'sequelize-typescript';
-import { ROLE } from '../constants/user.constants';
-import { UserRequest } from './request.entity';
-import { UserResponse } from './response.entity';
-import { UserCreationAttrs } from './types/user.type';
+import { ROLE } from 'src/constants/user.constants';
+import { Entity, Column, OneToMany } from 'typeorm';
+import { BaseEntity } from './base.entity';
+import { UserReq } from './user_request.entity';
 
+@Entity('users')
+export class User extends BaseEntity {
+  @Column()
+  name: string;
 
-@Table({ tableName: 'users' })
-export class User extends Model<User, UserCreationAttrs> {
+  @Column()
+  password: string;
 
-    @Column({ type: DataType.INTEGER, unique: true, autoIncrement: true, primaryKey: true })
-    id: number;
+  @Column({
+    unique: true,
+  })
+  email: string;
 
-    @Column({ type: DataType.STRING, unique: true, allowNull: false })
-    email: string;
+  @OneToMany(() => UserReq, (req) => req.userId)
+  requests: UserReq[];
 
-    @Column({ type: DataType.STRING, allowNull: false })
-    name: string;
-
-    @Column({ type: DataType.STRING, allowNull: false })
-    password: string;
-
-    @Column({ type: DataType.STRING, defaultValue: ROLE.USER })
-    role: ROLE;
-
-    @HasMany(() => UserRequest)
-    requests: UserRequest[];
-
-    @HasMany(() => UserResponse)
-    responses: UserResponse[];
+  @Column({
+    type: 'enum',
+    enum: ROLE,
+    default: ROLE.USER,
+  })
+  role: ROLE;
 }
